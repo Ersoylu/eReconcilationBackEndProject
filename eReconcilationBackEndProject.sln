@@ -3,15 +3,20 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32922.545
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Business", "Business\Business.csproj", "{BEC85F7D-0A85-4C43-87A0-38BE18052A0F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Business", "Business\Business.csproj", "{BEC85F7D-0A85-4C43-87A0-38BE18052A0F}"
+	ProjectSection(ProjectDependencies) = postProject
+		{136A181F-BFA7-4515-834A-069DA844AFDC} = {136A181F-BFA7-4515-834A-069DA844AFDC}
+		{9513BDB0-EBC1-41D2-A796-180E383C7649} = {9513BDB0-EBC1-41D2-A796-180E383C7649}
+		{A7C9856B-5310-4B9C-BAB5-51E56D0BD64B} = {A7C9856B-5310-4B9C-BAB5-51E56D0BD64B}
+	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "Core\Core.csproj", "{9513BDB0-EBC1-41D2-A796-180E383C7649}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core", "Core\Core.csproj", "{9513BDB0-EBC1-41D2-A796-180E383C7649}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess", "DataAccess\DataAccess.csproj", "{A7C9856B-5310-4B9C-BAB5-51E56D0BD64B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAccess", "DataAccess\DataAccess.csproj", "{A7C9856B-5310-4B9C-BAB5-51E56D0BD64B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entities", "Entities\Entities.csproj", "{136A181F-BFA7-4515-834A-069DA844AFDC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Entities", "Entities\Entities.csproj", "{136A181F-BFA7-4515-834A-069DA844AFDC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApi", "WebApi\WebApi.csproj", "{DBA1AF91-0B5D-4114-8893-40831AB091EA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApi", "WebApi\WebApi.csproj", "{DBA1AF91-0B5D-4114-8893-40831AB091EA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

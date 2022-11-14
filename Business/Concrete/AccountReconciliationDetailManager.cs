@@ -8,10 +8,10 @@ using System.Threading.Tasks;
 
 namespace Business.Concrete
 {
-	public class AccountReconciliationDetailServiceManager: IAccountReconciliationDetailService
+	public class AccountReconciliationDetailManager: IAccountReconciliationDetailService
 	{
 		private readonly IAccountReconciliationDetailsDal _accountReconciliationDetailsDal;
-		public AccountReconciliationDetailServiceManager(IAccountReconciliationDetailsDal accountReconciliationDetailsDal)
+		public AccountReconciliationDetailManager(IAccountReconciliationDetailsDal accountReconciliationDetailsDal)
 		{
 			_accountReconciliationDetailsDal = accountReconciliationDetailsDal;
 		}

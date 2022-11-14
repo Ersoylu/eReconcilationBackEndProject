@@ -28,7 +28,7 @@ namespace Business.Concrete
 
 		public IDataResult<List<Company>> GetList()
 		{
-			return new SuccesDataResult<List<Company>>(_companyDal.GetList(),);
+			return new SuccesDataResult<List<Company>>(_companyDal.GetList());
 		}
 	}
 }

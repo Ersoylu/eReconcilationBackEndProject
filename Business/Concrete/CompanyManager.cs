@@ -1,4 +1,7 @@
 ﻿using Business.Abstract;
+using Business.Constants;
+using Core.Utilities.Results.Abstract;
+using Core.Utilities.Results.Concrete;
 using DataAccess.Abstract;
 using Entities.Concrete;
 using System;
@@ -17,9 +20,15 @@ namespace Business.Concrete
 			_companyDal= companyDal;
 		}
 
-		List<Company> ICompanyService.GetList()
+		public IResult Add(Company company)
 		{
-			throw new NotImplementedException();
+			_companyDal.Add(company);
+			return new SuccessResult(Messages.AddedCompany);
+		}
+
+		public IDataResult<List<Company>> GetList()
+		{
+			return new SuccesDataResult<List<Company>>(_companyDal.GetList(),);
 		}
 	}
 }

@@ -1,4 +1,5 @@
 ﻿using Business.Abstract;
+using Entities.Concrete;
 using Entities.Dtos;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -16,25 +17,50 @@ namespace WebApi.Controllers
 	}
 
 		[HttpPost("Register")]
-		public IActionResult Register(UserForRegister userForRegister)
+		public IActionResult Register(UserAndCompanyRegisterDto userAndCompanyRegister)
 		{
-			var userExits = _authService.UserExits(userForRegister.Email);
+
+			var userExits = _authService.UserExits(userAndCompanyRegister.UserForRegister.Email);
 			if (!userExits.Success)
 			{
 				return BadRequest(userExits.Message);
 			}
-			var registerResult = _authService.Register(userForRegister, userForRegister.Password);
-			var result = _authService.CreateAccessToken(registerResult.Data,0);
+			var companyExists= _authService.CompanyExits(userAndCompanyRegister.company);
+			if (!companyExists.Success) 
+			{
+				return BadRequest(userExits.Message);
+			}
+
+			var registerResult = _authService.Register(userAndCompanyRegister.UserForRegister, userAndCompanyRegister.UserForRegister.Password, userAndCompanyRegister.company);
+
+			var result = _authService.CreateAccessToken(registerResult.Data, registerResult.Data.CompanyId);
 			if (result.Success)
 			{
 				return Ok(result.Data);
 			}
-			//if (registerResult.Success)
-			//{
-			//	return Ok(registerResult);
-			//}
+			
 			return BadRequest(registerResult.Message);
 		}
+				[HttpPost("RegisterSecondAccount")]
+				public IActionResult RegisterSecondAccount(UserForRegister userForRegister, int companyId)
+				{
+					var userExits = _authService.UserExits(userForRegister.Email);
+					if (!userExits.Success)
+					{
+						return BadRequest(userExits.Message);
+					}
+					var registerResult = _authService.RegisterSecondAccount(userForRegister, userForRegister.Password);
+					var result = _authService.CreateAccessToken(registerResult.Data, 0);
+					if (result.Success)
+					{
+						return Ok(result.Data);
+					}
+					//if (registerResult.Success)
+					//{
+					//	return Ok(registerResult);
+					//}
+					return BadRequest(registerResult.Message);
+				}
 		[HttpPost("Login")]
 		public IActionResult Login(UserForLogin userForLogin)
 		{

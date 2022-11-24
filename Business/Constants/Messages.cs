@@ -14,6 +14,12 @@ namespace Business.Constants
 		public static string SuccessfulLogin = "Login is successful";
 		public static string UserRegistered = "Registration of user is successful";
 		public static string UserAlreadyExits = "User allready Exits";
+		public static string CompanyAllreadyExists = "Company Already Exits";
+		public static string MailParameterUpdated = "Mail parameter updated succesfully";
+		public static string MailSendSucessful = "Mail send succesfull";
 
+		public static string MailTemplateAdded = "Mail template added sucessfully";
+		public static string MailTemplateUpdated = "Mail template updated sucessfully";
+		public static string MailTemplateDeleted = "Mail template deleted sucessfully";
 	}
 }
